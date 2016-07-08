@@ -5,7 +5,6 @@ import code.com.olo.easydip.annotations.Implementation;
 import com.abstractions.IClientDataAccess;
 import com.model.Client;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Implementation(implementationName = "mssql")
@@ -15,6 +14,6 @@ public class MsSqlClientDataAccess implements IClientDataAccess {
     FakeClientsService fakeClientsService;
 
     public List<Client> getClients() {
-        return fakeClientsService.GetFakeClients();
+        return fakeClientsService.getFakeClients();
     }
 }

@@ -5,9 +5,6 @@ import code.com.olo.easydip.annotations.Implementation;
 import com.abstractions.IClientDataAccess;
 import com.model.Client;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Implementation(implementationName = "oracle")
@@ -17,6 +14,6 @@ public class OracleClientDataAccess implements IClientDataAccess {
 
     public List<Client> getClients() {
 
-        return fakeClientsService.GetFakeClients().subList(0, 2);
+        return fakeClientsService.getFakeClients().subList(0, 2);
     }
 }

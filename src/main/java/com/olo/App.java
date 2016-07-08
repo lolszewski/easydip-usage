@@ -1,7 +1,10 @@
 package com.olo;
 
 import code.com.olo.easydip.core.InjectionsManager;
+import com.abstractions.IClientArticlesService;
 import com.abstractions.IClientDataAccess;
+import com.abstractions.IClientOrdersService;
+import com.implementations.ClientsService;
 import com.implementations.DataAccess;
 import com.model.Client;
 
@@ -19,6 +22,13 @@ public class App {
         printClients(dataAccess.msSql.getClients(), "mssql");
         printClients(dataAccess.oracle.getClients(), "oracle");
         printClients(dataAccess.elastic.getClients(), "elastic");
+
+        IClientArticlesService clientArticlesService = InjectionsManager.instance.get(IClientArticlesService.class);
+        IClientOrdersService clientOrdersService = InjectionsManager.instance.get(IClientOrdersService.class);
+        ClientsService clientsService = InjectionsManager.instance.get(ClientsService.class);
+
+        ((IClientArticlesService)clientsService).getClientArticles("Martin");
+        ((IClientOrdersService)clientsService).getClientOrders("Martin");
     }
 
     private static void showClients(String source){
